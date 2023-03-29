@@ -12,7 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      URL: https://zabcia.jfrog.io
+      ARTIFACTORY_URL: https://zabcia.jfrog.io
+      ARTIFACTORY_REPOSITORY: default-generic-local
     steps:
       - uses: actions/checkout@v3
       - name: Setup JFrog CLI
@@ -25,4 +26,4 @@ jobs:
       - name: Upload Client binaries to JFrog
         run: 'jf rt upload test.zip default-generic-local'
       - name: Print link
-        run: echo $URL/artifactory/default-generic-local/test.zip
+        run: echo $ARTIFACTORY_URL/artifactory/$ARTIFACTORY_REPOSITORY/test.zip
