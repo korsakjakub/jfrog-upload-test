@@ -19,7 +19,7 @@ jobs:
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v2
         env:
-          JF_URL: ${{ env.URL }}
+          JF_URL: ${{ env.ARTIFACTORY_REPOSITORY }}.${{ env.ARTIFACTORY_URL }}
           JF_USER: ${{ secrets.JF_USER }}
           # JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
           JF_ACCESS_TOKEN: ${{ secrets.JF_PASSWORD }}
